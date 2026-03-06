@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Codex Windows</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <p class="eyebrow">AI coding partner on desktop</p>
+        <h1>Codex Windows</h1>
+        <p class="hero-copy">
+          一个面向本地开发场景的智能协作界面。它能理解你的工作区、读取项目上下文、
+          修改代码并反馈验证结果，让“提需求”和“落代码”发生在同一个窗口里。
+        </p>
+        <div class="hero-actions">
+          <a href="#highlights" class="button primary">了解能力</a>
+          <a href="#workflow" class="button secondary">查看流程</a>
+        </div>
+      </header>
+
+      <main>
+        <section id="highlights" class="card-grid">
+          {% for item in highlights %}
+          <article class="info-card">
+            <span class="card-index">0{{ loop.index }}</span>
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.description }}</p>
+          </article>
+          {% endfor %}
+        </section>
+
+        <section class="split-panel">
+          <div class="panel intro-panel">
+            <p class="section-label">为什么是 Windows 端</p>
+            <h2>离代码更近，反馈更短</h2>
+            <p>
+              相比纯聊天式问答，Codex Windows 更强调在真实项目中协作。它既能给出解释，也能直接进入仓库查看文件、
+              组织修改、运行命令，并把结果返回给你。
+            </p>
+          </div>
+
+          <div id="workflow" class="panel workflow-panel">
+            <p class="section-label">典型工作流</p>
+            <ol>
+              {% for step in workflow %}
+              <li>{{ step }}</li>
+              {% endfor %}
+            </ol>
+          </div>
+        </section>
+
+        <section class="quote-block">
+          <p>
+            “适合希望把 AI 从建议工具升级为实际开发协作者的团队或个人。”
+          </p>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
